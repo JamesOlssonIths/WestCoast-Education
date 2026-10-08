@@ -22,7 +22,7 @@ public class StudentServices
 
     static string CheckInput(string Question)
     {
-        System.Console.WriteLine($"Enter {Question}");
+        System.Console.Write($"Enter your {Question}: ");
         var userInput =Console.ReadLine();
         while(string.IsNullOrWhiteSpace(userInput))
         {
