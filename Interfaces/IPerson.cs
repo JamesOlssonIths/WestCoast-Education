@@ -12,6 +12,6 @@ public interface IPerson
 
     string ToString();
     
-    IPerson GetPerson();
+    
 
 }
