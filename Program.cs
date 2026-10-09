@@ -12,6 +12,9 @@ class Program
         {
             case"S":StudentServices.CreateNewStudent(school);
             break;
+            case"P":
+            break;
+            
             case"E":EmployeeServices.CreateNewEmployee(school);
             break;
             case"C":ConsultentServices.CreateNewConsultant(school);

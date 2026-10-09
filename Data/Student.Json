@@ -1,0 +1,11 @@
+[
+    {
+    "FirstName": "Anna",
+    "LastName": "Svensson",
+    "PhoneNumber": "+46 70 123 45 67",
+    "SocialSecurityNumber": "YYYYMMDD-XXXX",
+    "Address": "Storgatan 1",
+    "CityNumber": "0180",
+    "City": "Stockholm"
+    }
+]
