@@ -10,7 +10,7 @@ public class Consultant : Student
 
     public override string ToString()
     {
-        return base.ToString() + $"Knowledge area: {KnowledgeArea} \n Active courses: {Courses}";
+        return base.ToString() + $"Knowledge area: {KnowledgeArea} \nActive courses: {Courses}";
     }
 
 

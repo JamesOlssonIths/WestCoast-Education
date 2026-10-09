@@ -4,7 +4,7 @@ namespace WestCoast_Education.Service;
 
 public class ConsultentServices
 {
-    public static void CreateNewEmployee(School school)
+    public static void CreateNewConsultant(School school)
     {
         var consultant = new Consultant
         {
