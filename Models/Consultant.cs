@@ -5,9 +5,12 @@ namespace WestCoast_Education.Models;
 public class Consultant : Student
 {
     
+    public required string KnowledgeArea { get; set; }
+    public required string Courses { get; set; }
+
     public override string ToString()
     {
-        return "poop";
+        return base.ToString() + $"Knowledge area: {KnowledgeArea} \n Active courses: {Courses}";
     }
 
 

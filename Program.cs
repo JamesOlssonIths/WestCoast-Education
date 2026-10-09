@@ -6,14 +6,28 @@ class Program
 {
     static void Main()
     {
-       var school = new School();
+        var school = new School();
+
+
+        
+        switch (userInput)
+        {
+            case"S":StudentServices.CreateNewStudent(school);
+            break;
+
+        default:break;
+        }
     
-        StudentServices.CreateNewStudent(school);
+      
+
+        
 
         foreach (var item in school.Students)
         {
             System.Console.WriteLine(item.ToString());
         }
+
+
 
     }
 
