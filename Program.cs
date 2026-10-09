@@ -6,55 +6,38 @@ class Program
 {
     static void Main()
     {
-        var school = new School();
-        
-        IntroMessages();
-        switch (Console.ReadLine())
+        while (true)
         {
-            case"S":StudentServices.CreateNewStudent(school);
-            break;
-            case"P":var students = StudentServices.GetStudents();
-            foreach (var student in students)
+            var school = new School();
+            
+            IntroMessages();
+            switch (Console.ReadLine())
             {
-                Console.WriteLine(
-                $"{student.FirstName} {student.LastName} | " +
-                $"{student.PhoneNumber} | {student.Address} | " +
-                $"{student.City}, {student.CityNumber}");
+                case"S":StudentServices.CreateNewStudent(school);
+                break;
+                case"P":var students = StudentServices.GetStudents();
+                foreach (var student in students)
+                {
+                    Console.WriteLine(
+                    $"{student.FirstName} {student.LastName} | " +
+                    $"{student.PhoneNumber} | {student.Address} | " +
+                    $"{student.City}, {student.CityNumber}");
+                }
+                break;
+                case"E":EmployeeServices.CreateNewEmployee(school);
+                break;
+                case"C":ConsultentServices.CreateNewConsultant(school);
+                break;
+
+                default:break;
             }
-            break;
-            case"E":EmployeeServices.CreateNewEmployee(school);
-            break;
-            case"C":ConsultentServices.CreateNewConsultant(school);
-            break;
-
-            default:break;
         }
-
-    
-      
-
-        
-
-        foreach (var item in school.Students)
-        {
-            System.Console.WriteLine(item.ToString());
-        }
-        foreach (var item in school.Employees)
-        {
-            System.Console.WriteLine(item.ToString());
-        }
-        foreach (var item in school.Consultants)
-        {
-            System.Console.WriteLine(item.ToString());
-        }
-
-
 
     }
 
     static void IntroMessages()
     {
-        System.Console.WriteLine("Pick S, E, C");
+        System.Console.WriteLine("Pick S(Create student), E(Create Employee), C(Create Consultant), P(show Students)");
     }
 
 }
