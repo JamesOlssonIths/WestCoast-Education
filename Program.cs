@@ -7,14 +7,21 @@ class Program
     static void Main()
     {
         var school = new School();
+        
         IntroMessages();
         switch (Console.ReadLine())
         {
             case"S":StudentServices.CreateNewStudent(school);
             break;
-            case"P":
+            case"P":var students = StudentServices.GetStudents();
+            foreach (var student in students)
+            {
+                Console.WriteLine(
+                $"{student.FirstName} {student.LastName} | " +
+                $"{student.PhoneNumber} | {student.Address} | " +
+                $"{student.City}, {student.CityNumber}");
+            }
             break;
-            
             case"E":EmployeeServices.CreateNewEmployee(school);
             break;
             case"C":ConsultentServices.CreateNewConsultant(school);
@@ -22,6 +29,7 @@ class Program
 
             default:break;
         }
+
     
       
 

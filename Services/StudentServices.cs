@@ -4,8 +4,13 @@ namespace WestCoast_Education.Service;
 
 public class StudentServices
 {
+    
+    
+
     public static void CreateNewStudent(School school)
     {
+        string path = string.Concat(Environment.CurrentDirectory,"/Data/Student.json");
+
         var student = new Student
         {
           FirstName=CheckInput("First name"),  
@@ -17,6 +22,8 @@ public class StudentServices
           City=CheckInput("City") 
         };
         school.AddStudent(student);
+        var storage = new Storage<Student>();
+        storage.Write(path, school.Students);
 
     }
 
@@ -31,6 +38,15 @@ public class StudentServices
 
         return userInput;
     }
+
+    public static List<Student> GetStudents()
+    {
+        string path = string.Concat(Environment.CurrentDirectory,"/Data/Student.json");
+        var storage = new Storage<Student>();
+        return storage.Read(path);
+    }
+
+
 
 
 }
