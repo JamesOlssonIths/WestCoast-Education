@@ -1,36 +1,24 @@
 ﻿using WestCoast_Education.Models;
 
 namespace WestCoast_Education.Service;
+using WestCoast_Education.Models;
 
 public class EmployeeServices
 {
-    public static void CreateNewEmployee(School school)
+    static readonly string Path = string.Concat(Environment.CurrentDirectory,"/Data/Employee.json");
+    static readonly Storage<Employee> storage = new();
+
+    public static void CreateNewEmployee()
     {
-        var employee = new Employee
-        {
-          FirstName=CheckInput("First name"),  
-          LastName=CheckInput("Last name"),  
-          PhoneNumber=CheckInput("Phone number"),  
-          SocialSecurityNumber=CheckInput("Social Security Number"),  
-          Address=CheckInput("Address"),  
-          CityNumber=CheckInput("CityNumber"),  
-          City=CheckInput("City"),
-          StartOfEmplyoment=CheckInput("Start of employment") 
-        };
-        school.AddStudent(employee);
+        var employee = InputSerivces.UserInputForCreation<Employee>();
+
+        employee.StartOfEmplyoment = InputSerivces.CheckInput("Start of Employment");
+
+        storage.Add(Path, employee);
 
     }
-
-    static string CheckInput(string Question)
+     public static List<Employee> GetEmployee()
     {
-        System.Console.Write($"Enter your {Question}: ");
-        var userInput =Console.ReadLine();
-        while(string.IsNullOrWhiteSpace(userInput))
-        {
-            System.Console.WriteLine("Please enter something vaild");
-        }
-
-        return userInput;
+        return storage.Read(Path);
     }
-
 }

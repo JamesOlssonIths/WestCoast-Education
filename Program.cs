@@ -8,25 +8,30 @@ class Program
     {
         while (true)
         {
-            var school = new School();
             
             IntroMessages();
             switch (Console.ReadLine())
             {
-                case"S":StudentServices.CreateNewStudent(school);
+                case"S":StudentServices.CreateNewStudent();
                 break;
-                case"P":var students = StudentServices.GetStudents();
-                foreach (var student in students)
-                {
-                    Console.WriteLine(
-                    $"{student.FirstName} {student.LastName} | " +
-                    $"{student.PhoneNumber} | {student.Address} | " +
-                    $"{student.City}, {student.CityNumber}");
-                }
+                case"SP":var students = StudentServices.GetStudents();
+                    foreach (var item in students)
+                    {
+                        Console.WriteLine(item.ToString());
+                    }
                 break;
-                case"E":EmployeeServices.CreateNewEmployee(school);
+                case"E":EmployeeServices.CreateNewEmployee();
                 break;
-                case"C":ConsultentServices.CreateNewConsultant(school);
+                case"EP":var employee = EmployeeServices.GetEmployee();
+                    foreach (var item in employee)
+                    {
+                        Console.WriteLine(item.ToString());
+                    }
+                break;
+
+                case"C":ConsultentServices.CreateNewConsultant();
+                break;
+                case"CP":ConsultentServices.CreateNewConsultant();
                 break;
 
                 default:break;
@@ -37,7 +42,7 @@ class Program
 
     static void IntroMessages()
     {
-        System.Console.WriteLine("Pick S(Create student), E(Create Employee), C(Create Consultant), P(show Students)");
+        System.Console.WriteLine("Pick SP(Create student), E(Create Employee), C(Create Consultant), P(show Students)");
     }
 
 }

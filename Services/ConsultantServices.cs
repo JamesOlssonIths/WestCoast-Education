@@ -4,7 +4,7 @@ namespace WestCoast_Education.Service;
 
 public class ConsultentServices
 {
-    public static void CreateNewConsultant(School school)
+    public static void CreateNewConsultant()
     {
         var consultant = new Consultant
         {
@@ -19,7 +19,6 @@ public class ConsultentServices
           Courses=CheckInput("Active course")
 
         };
-        school.AddStudent(consultant);
 
     }
 

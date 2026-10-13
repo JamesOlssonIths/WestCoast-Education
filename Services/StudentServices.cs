@@ -5,55 +5,17 @@ namespace WestCoast_Education.Service;
 
 public class StudentServices
 {
-    
+     static readonly string Path = string.Concat(Environment.CurrentDirectory,"/Data/Student.json");
+    static readonly Storage<Student> storage = new();
 
-    public static void CreateNewStudent(School school)
+    public static void CreateNewStudent()
     {
-        string path = string.Concat(Environment.CurrentDirectory,"/Data/Student.json");
-        var storage = new Storage<Student>();
-
-        var student = new Student
-        {
-          FirstName=CheckInput("First name"),  
-          LastName=CheckInput("Last name"),  
-          PhoneNumber=CheckInput("Phone number"),  
-          SocialSecurityNumber=CheckInput("Social Security Number"),  
-          Address=CheckInput("Address"),  
-          CityNumber=CheckInput("CityNumber"),  
-          City=CheckInput("City") 
-        };
-
-        var students = GetStudents();
-        students.Add(student);
-
-        storage.Write(path, students);
-
-    }
-
-    static string CheckInput(string Question)
-    {
-        System.Console.Write($"Enter your {Question}: ");
-        var userInput =Console.ReadLine();
-        while(string.IsNullOrWhiteSpace(userInput))
-        {
-            System.Console.WriteLine("Please enter something valid");
-            System.Console.Write($"Enter your {Question}: ");
-            userInput = Console.ReadLine();
-        }
-
-        return userInput;
+        var student = InputSerivces.UserInputForCreation<Student>();
+        storage.Add(Path, student);
     }
 
     public static List<Student> GetStudents()
     {
-        string path = string.Concat(Environment.CurrentDirectory,"/Data/Student.json");
-        var storage = new Storage<Student>();
-        
-        
-        return storage.Read(path);
+        return storage.Read(Path);
     }
-
-
-
-
 }

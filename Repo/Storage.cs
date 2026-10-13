@@ -38,6 +38,7 @@ public class Storage<T>
 
     public void Write(string path, List<T> data)
     {
+        
        try
        {
 
@@ -51,4 +52,14 @@ public class Storage<T>
         
         
     }
+
+
+
+    public void Add(string path, T item)
+    {
+        var list = Read(path);
+        list.Add(item);
+        Write(path, list);
+    }
+
 }
