@@ -1,15 +1,16 @@
-﻿using WestCoast_Education.Models;
+﻿using System.Dynamic;
+using WestCoast_Education.Models;
 
 namespace WestCoast_Education.Service;
 
 public class StudentServices
 {
     
-    
 
     public static void CreateNewStudent(School school)
     {
         string path = string.Concat(Environment.CurrentDirectory,"/Data/Student.json");
+        var storage = new Storage<Student>();
 
         var student = new Student
         {
@@ -21,9 +22,11 @@ public class StudentServices
           CityNumber=CheckInput("CityNumber"),  
           City=CheckInput("City") 
         };
-        school.AddStudent(student);
-        var storage = new Storage<Student>();
-        storage.Write(path, school.Students);
+
+        var students = GetStudents();
+        students.Add(student);
+
+        storage.Write(path, students);
 
     }
 
@@ -33,7 +36,9 @@ public class StudentServices
         var userInput =Console.ReadLine();
         while(string.IsNullOrWhiteSpace(userInput))
         {
-            System.Console.WriteLine("Please enter something vaild");
+            System.Console.WriteLine("Please enter something valid");
+            System.Console.Write($"Enter your {Question}: ");
+            userInput = Console.ReadLine();
         }
 
         return userInput;
@@ -43,6 +48,8 @@ public class StudentServices
     {
         string path = string.Concat(Environment.CurrentDirectory,"/Data/Student.json");
         var storage = new Storage<Student>();
+        
+        
         return storage.Read(path);
     }
 
