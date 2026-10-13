@@ -4,34 +4,23 @@ namespace WestCoast_Education.Service;
 
 public class ConsultentServices
 {
+
+    static readonly string Path = string.Concat(Environment.CurrentDirectory,"/Data/Consultant.json");
+    static readonly Storage<Consultant> storage = new();
+
     public static void CreateNewConsultant()
     {
-        var consultant = new Consultant
-        {
-          FirstName=CheckInput("First name"),  
-          LastName=CheckInput("Last name"),  
-          PhoneNumber=CheckInput("Phone number"),  
-          SocialSecurityNumber=CheckInput("Social Security Number"),  
-          Address=CheckInput("Address"),  
-          CityNumber=CheckInput("CityNumber"),  
-          City=CheckInput("City"),
-          KnowledgeArea=CheckInput("Knowledge area"),
-          Courses=CheckInput("Active course")
+        var Consultant = InputSerivcesPerson.UserInputForCreation<Consultant>();
 
-        };
+        Consultant.KnowledgeArea = InputSerivcesPerson.CheckInput("Knowledge area");
+        Consultant.Courses = InputSerivcesPerson.CheckInput("Courses");
+
+        storage.Add(Path, Consultant);
 
     }
-
-    static string CheckInput(string Question)
+    public static List<Consultant> GetConsultant()
     {
-        System.Console.Write($"Enter your {Question}: ");
-        var userInput =Console.ReadLine();
-        while(string.IsNullOrWhiteSpace(userInput))
-        {
-            System.Console.WriteLine("Please enter something vaild");
-        }
-
-        return userInput;
+        return storage.Read(Path);
     }
 
 }

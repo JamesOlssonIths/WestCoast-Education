@@ -1,7 +1,7 @@
 ﻿using WestCoast_Education.Models;
 
 namespace WestCoast_Education.Service;
-using WestCoast_Education.Models;
+
 
 public class EmployeeServices
 {
@@ -10,14 +10,14 @@ public class EmployeeServices
 
     public static void CreateNewEmployee()
     {
-        var employee = InputSerivces.UserInputForCreation<Employee>();
+        var employee = InputSerivcesPerson.UserInputForCreation<Employee>();
 
-        employee.StartOfEmplyoment = InputSerivces.CheckInput("Start of Employment");
+        employee.StartOfEmplyoment = InputSerivcesPerson.CheckInput("Start of Employment");
 
         storage.Add(Path, employee);
 
     }
-     public static List<Employee> GetEmployee()
+    public static List<Employee> GetEmployee()
     {
         return storage.Read(Path);
     }

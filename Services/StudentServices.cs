@@ -10,7 +10,7 @@ public class StudentServices
 
     public static void CreateNewStudent()
     {
-        var student = InputSerivces.UserInputForCreation<Student>();
+        var student = InputSerivcesPerson.UserInputForCreation<Student>();
         storage.Add(Path, student);
     }
 

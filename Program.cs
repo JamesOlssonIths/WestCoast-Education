@@ -31,9 +31,16 @@ class Program
 
                 case"C":ConsultentServices.CreateNewConsultant();
                 break;
-                case"CP":ConsultentServices.CreateNewConsultant();
+                case"CP": var consultant = ConsultentServices.GetConsultant();
+                 foreach (var item in consultant)
+                    {
+                        Console.WriteLine(item.ToString());
+                    }
                 break;
-
+                case"CO":ConsultentServices.CreateNewConsultant();
+                break;
+                case"COP": 
+        
                 default:break;
             }
         }
@@ -42,7 +49,7 @@ class Program
 
     static void IntroMessages()
     {
-        System.Console.WriteLine("Pick SP(Create student), E(Create Employee), C(Create Consultant), P(show Students)");
+        System.Console.WriteLine("Pick SP(Create student), E(Create Employee), C(Create Consultant), SP(show Students), EP(Show employees), CP(Show consultant)");
     }
 
 }

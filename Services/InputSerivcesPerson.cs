@@ -1,7 +1,7 @@
 ﻿namespace WestCoast_Education.Models;
 using System.Collections.Generic;
 
-public class InputSerivces
+public class InputSerivcesPerson
 {
     public static string CheckInput(string Question)
     {
