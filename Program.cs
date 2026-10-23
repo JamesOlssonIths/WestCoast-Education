@@ -7,36 +7,22 @@ class Program
     {
         while (true)
         {
-            
             IntroMessages();
             switch (Console.ReadLine())
             {
-                case"S":StudentServices.CreateNewStudent();
+                case"S":StudentServices.CreateNew();
                 break;
-                case"SP":var students = StudentServices.GetStudents();
-                    foreach (var item in students)
-                    {
-                        Console.WriteLine(item.ToString());
-                    }
+                case"SP": StudentServices.PrintAll();
                 break;
-                case"E":EducationSupervisorServices.CreateNewEmployee();
+                case"E":EducationSupervisorServices.CreateNew();
                 break;
-                case"EP":var employee = EducationSupervisorServices.GetEmployee();
-                    foreach (var item in employee)
-                    {
-                        Console.WriteLine(item.ToString());
-                    }
+                case"EP":EducationSupervisorServices.PrintAll();
                 break;
-
-                case"C":TeacherServices.CreateNewConsultant();
+                case"C":TeacherServices.CreateNew();
                 break;
-                case"CP": var consultant = TeacherServices.GetConsultant();
-                 foreach (var item in consultant)
-                    {
-                        Console.WriteLine(item.ToString());
-                    }
+                case"CP": TeacherServices.PrintAll();
                 break;
-                case"CO":TeacherServices.CreateNewConsultant();
+                case"CO":TeacherServices.CreateNew();
                 break;
                 case"Course":CourseServices.CreateNewCourse();
                 break;
@@ -46,16 +32,13 @@ class Program
                     Console.WriteLine(item.ToString());
                 }
                 break;
-        
                 default:break;
             }
         }
-
     }
-
     static void IntroMessages()
     {
-        System.Console.WriteLine("Pick SP(Create student), E(Create Employee), C(Create Consultant), SP(show Students), EP(Show employees), CP(Show consultant)");
+        System.Console.WriteLine("Pick S(Create student), E(Create Employee), C(Create Consultant), SP(show Students), EP(Show employees), CP(Show consultant)");
     }
 
 }

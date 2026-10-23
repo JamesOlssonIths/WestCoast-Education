@@ -10,14 +10,24 @@ public class PersonServices<T> where T : Person, new()
 
   public static void CreateNew()
 {
-    var person = InputServices.UserInputForCreation<T>();   // 1. create it and ask the basic questions
-    person.AskForDetails();                                  // 2. ask the extra questions
-    storage.Add(Path, person);                               // 3. save it
+    var person = InputServices.UserInputForCreation<T>();   
+    person.AskForDetails();                                  
+    storage.Add(Path, person);                               
 }
 
-    public static List<T> GetAll(string path)
+    public static List<T> GetAll()
     {
         return storage.Read(Path);
+    }
+
+    public static void PrintAll()
+    {
+        foreach (var person in GetAll())
+        {
+            Console.WriteLine(person);
+            
+        }
+
     }
 
 }

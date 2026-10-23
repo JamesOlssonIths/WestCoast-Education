@@ -18,7 +18,7 @@ public class InputServices
     }
 
 
-    public static T UserInputForCreation<T>() where T : Person, new()   //https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/generics
+    public static T UserInputForCreation<T>() where T : Person, new()   
     {
         var person = new T
         { 

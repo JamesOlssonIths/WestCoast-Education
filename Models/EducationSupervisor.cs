@@ -1,6 +1,6 @@
 ﻿namespace WestCoast_Education.Models;
 
-public class EducationSupervisor : Person
+public class EducationSupervisor : Teacher
 {
     public DateTime StartOfEmplyoment { get; set; }
     public override string ToString()
