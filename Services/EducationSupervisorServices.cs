@@ -12,7 +12,7 @@ public class EducationSupervisorServices
     {
         var employee = InputServices.UserInputForCreation<EducationSupervisor>();
 
-        employee.StartOfEmplyoment = InputServices.CheckInput("Start of Employment");
+        employee.StartOfEmplyoment = InputServices.AskForDate("Start of Employment");
 
         jsonStorage.Add(Path, employee);
 

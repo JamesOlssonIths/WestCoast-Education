@@ -15,4 +15,5 @@ public class Person
     {
         return $"------- \nName : {FirstName} {LastName} \nPhonenumber : {PhoneNumber} \nSocial security number : {SocialSecurityNumber} \nAddress : {Address} \n";
     }
+    public virtual void AskForDetails() { }
 }
