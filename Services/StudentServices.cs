@@ -6,16 +6,16 @@ namespace WestCoast_Education.Service;
 public class StudentServices
 {
      static readonly string Path = string.Concat(Environment.CurrentDirectory,"/Data/Student.json");
-    static readonly Storage<Student> storage = new();
+    static readonly JsonStorage<Student> jsonStorage = new();
 
     public static void CreateNewStudent()
     {
         var student = InputServices.UserInputForCreation<Student>();
-        storage.Add(Path, student);
+        jsonStorage.Add(Path, student);
     }
 
     public static List<Student> GetStudents()
     {
-        return storage.Read(Path);
+        return jsonStorage.Read(Path);
     }
 }

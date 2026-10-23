@@ -3,22 +3,22 @@
 namespace WestCoast_Education.Service;
 
 
-public class EmployeeServices
+public class EducationSupervisorServices
 {
     static readonly string Path = string.Concat(Environment.CurrentDirectory,"/Data/Employee.json");
-    static readonly Storage<Employee> storage = new();
+    static readonly JsonStorage<EducationSupervisor> jsonStorage = new();
 
     public static void CreateNewEmployee()
     {
-        var employee = InputServices.UserInputForCreation<Employee>();
+        var employee = InputServices.UserInputForCreation<EducationSupervisor>();
 
         employee.StartOfEmplyoment = InputServices.CheckInput("Start of Employment");
 
-        storage.Add(Path, employee);
+        jsonStorage.Add(Path, employee);
 
     }
-    public static List<Employee> GetEmployee()
+    public static List<EducationSupervisor> GetEmployee()
     {
-        return storage.Read(Path);
+        return jsonStorage.Read(Path);
     }
 }

@@ -12,7 +12,7 @@ public class Course
     public DateTime StartDate { get; set; }
 
     public List<Student> Students { get; set; } =[];
-    public Consultant? Consultant { get; set; }
+    public Teacher? teacher { get; set; }
     
     public override string ToString()
     {

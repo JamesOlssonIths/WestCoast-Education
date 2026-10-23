@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Encodings.Web;
 using System.Text.Json;
+using WestCoast_Education.Interfaces;
 
-
-public class Storage<T>
+public class JsonStorage<T> : IStorage<T>
 {
     private readonly JsonSerializerOptions _options = new()
     {
@@ -16,8 +16,7 @@ public class Storage<T>
         Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
     };
     public List<T> Read(string path)
-    {
-        
+    {  
         try
         {
             if (!File.Exists(path)) return [];
@@ -29,19 +28,15 @@ public class Storage<T>
             return [];
         }   
         catch (System.Exception)
-        {
-            
+        {    
             throw;
         }
           
     }
-
     public void Write(string path, List<T> data)
-    {
-        
+    {   
        try
        {
-
             string json = JsonSerializer.Serialize(data);
             File.WriteAllText(path, json);
        }
@@ -49,12 +44,7 @@ public class Storage<T>
        {
             throw;
        }
-        
-        
     }
-
-
-
     public void Add(string path, T item)
     {
         var list = Read(path);
@@ -62,4 +52,6 @@ public class Storage<T>
         Write(path, list);
     }
 
+
 }
+

@@ -26,9 +26,12 @@ public class InputServices
             LastName = CheckInput("Last name"),
             PhoneNumber = CheckInput("Phone number"),
             SocialSecurityNumber = CheckInput("Social Security Number"),
-            Address = CheckInput("Address"),
-            CityNumber = CheckInput("CityNumber"),
-            City = CheckInput("City")
+            Address = new Address
+            {
+                Street = CheckInput("street address"),
+                PostalCode = CheckInput("postal code"),
+                City = CheckInput("city")
+            }
         };
         return person;
     }

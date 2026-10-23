@@ -5,7 +5,7 @@ namespace WestCoast_Education.Service;
 public class CourseServices
 {
     static readonly string Path = string.Concat(Environment.CurrentDirectory,"/Data/Course.json");
-    static readonly Storage<Course> storage = new();
+    static readonly JsonStorage<Course> jsonStorage = new();
 
 
     public static void CreateNewCourse()
@@ -22,14 +22,14 @@ public class CourseServices
         };
 
 
-        storage.Add(Path, course);
+        jsonStorage.Add(Path, course);
 
     }   
 
     public static List<Course> GetCourses()
     {
         
-        return storage.Read(Path);
+        return jsonStorage.Read(Path);
 
     }
 

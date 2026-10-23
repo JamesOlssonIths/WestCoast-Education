@@ -1,5 +1,4 @@
 ﻿namespace WestCoast_Education;
-using WestCoast_Education.InterFace;
 using WestCoast_Education.Models;
 using WestCoast_Education.Service;
 class Program
@@ -20,24 +19,24 @@ class Program
                         Console.WriteLine(item.ToString());
                     }
                 break;
-                case"E":EmployeeServices.CreateNewEmployee();
+                case"E":EducationSupervisorServices.CreateNewEmployee();
                 break;
-                case"EP":var employee = EmployeeServices.GetEmployee();
+                case"EP":var employee = EducationSupervisorServices.GetEmployee();
                     foreach (var item in employee)
                     {
                         Console.WriteLine(item.ToString());
                     }
                 break;
 
-                case"C":ConsultentServices.CreateNewConsultant();
+                case"C":TeacherServices.CreateNewConsultant();
                 break;
-                case"CP": var consultant = ConsultentServices.GetConsultant();
+                case"CP": var consultant = TeacherServices.GetConsultant();
                  foreach (var item in consultant)
                     {
                         Console.WriteLine(item.ToString());
                     }
                 break;
-                case"CO":ConsultentServices.CreateNewConsultant();
+                case"CO":TeacherServices.CreateNewConsultant();
                 break;
                 case"Course":CourseServices.CreateNewCourse();
                 break;
