@@ -39,7 +39,14 @@ class Program
                 break;
                 case"CO":ConsultentServices.CreateNewConsultant();
                 break;
-                case"COP": 
+                case"Course":CourseServices.CreateNewCourse();
+                break;
+                case"Scourse": var course = CourseServices.GetCourses();
+                foreach (var item in course)
+                {
+                    Console.WriteLine(item.ToString());
+                }
+                break;
         
                 default:break;
             }

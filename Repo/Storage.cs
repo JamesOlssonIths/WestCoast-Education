@@ -27,7 +27,7 @@ public class Storage<T>
             return JsonSerializer.Deserialize<List<T>>(StoredTxt, _options)!;
             }
             return [];
-        }
+        }   
         catch (System.Exception)
         {
             

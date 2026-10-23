@@ -10,10 +10,10 @@ public class ConsultentServices
 
     public static void CreateNewConsultant()
     {
-        var Consultant = InputSerivcesPerson.UserInputForCreation<Consultant>();
+        var Consultant = InputServices.UserInputForCreation<Consultant>();
 
-        Consultant.KnowledgeArea = InputSerivcesPerson.CheckInput("Knowledge area");
-        Consultant.Courses = InputSerivcesPerson.CheckInput("Courses");
+        Consultant.KnowledgeArea = InputServices.CheckInput("Knowledge area");
+        Consultant.Courses = InputServices.CheckInput("Courses");
 
         storage.Add(Path, Consultant);
 

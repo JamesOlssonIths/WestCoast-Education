@@ -10,9 +10,9 @@ public class EmployeeServices
 
     public static void CreateNewEmployee()
     {
-        var employee = InputSerivcesPerson.UserInputForCreation<Employee>();
+        var employee = InputServices.UserInputForCreation<Employee>();
 
-        employee.StartOfEmplyoment = InputSerivcesPerson.CheckInput("Start of Employment");
+        employee.StartOfEmplyoment = InputServices.CheckInput("Start of Employment");
 
         storage.Add(Path, employee);
 
