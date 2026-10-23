@@ -1,1 +1,44 @@
-[{"CourseNumber":12313,"Title":"1231","TotalWeeks":"123","Remote":true,"EndDate":"2022-12-12T00:00:00","StartDate":"2002-12-12T00:00:00","Students":[],"Consultant":null},{"CourseNumber":1231,"Title":"12312","TotalWeeks":"123123","Remote":true,"EndDate":"2002-12-13T00:00:00","StartDate":"2002-12-12T00:00:00","Students":[],"Consultant":null}]
+[
+  {
+    "courseNumber": 12313,
+    "title": "1231",
+    "totalWeeks": "123",
+    "remote": true,
+    "endDate": "2022-12-12T00:00:00",
+    "startDate": "2002-12-12T00:00:00",
+    "students": [],
+    "teacher": null
+  },
+  {
+    "courseNumber": 1231,
+    "title": "12312",
+    "totalWeeks": "123123",
+    "remote": true,
+    "endDate": "2002-12-13T00:00:00",
+    "startDate": "2002-12-12T00:00:00",
+    "students": [],
+    "teacher": null
+  },
+  {
+    "courseNumber": 123,
+    "title": "123",
+    "totalWeeks": "123",
+    "remote": true,
+    "endDate": "2302-12-12T00:00:00",
+    "startDate": "2003-11-23T00:00:00",
+    "students": [],
+    "teacher": {
+      "knowledgeArea": "123",
+      "courses": "",
+      "firstName": "123",
+      "lastName": "123",
+      "phoneNumber": "123",
+      "socialSecurityNumber": "123",
+      "address": {
+        "street": "123",
+        "postalCode": "123",
+        "city": "123"
+      }
+    }
+  }
+]

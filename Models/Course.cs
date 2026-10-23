@@ -12,11 +12,21 @@ public class Course
     public DateTime StartDate { get; set; }
 
     public List<Student> Students { get; set; } =[];
-    public Teacher? teacher { get; set; }
+     public Teacher? Teacher { get; set; }
+
+    public void AssignTeacher(Teacher teacher)
+    {
+        if (teacher is null)
+        {
+            throw new ArgumentNullException(nameof(teacher));
+        }
+
+        Teacher = teacher;
+    }
     
     public override string ToString()
     {
-        return $"------- \nCourse number : {CourseNumber} \nTitle : {Title} \nTotal weeks : {TotalWeeks} \nRemote : {Remote} \nStart date : {StartDate} \nEnd date : {EndDate} \n";
+        return $"------- \nCourse number : {CourseNumber} \nTitle : {Title} \nTotal weeks : {TotalWeeks} \nRemote : {Remote} \nStart date : {StartDate} \nEnd date : {EndDate} \n  Teacher : {Teacher.FirstName}";
     }
 }
 

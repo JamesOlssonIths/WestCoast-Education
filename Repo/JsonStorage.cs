@@ -37,7 +37,7 @@ public class JsonStorage<T> : IStorage<T>
     {   
        try
        {
-            string json = JsonSerializer.Serialize(data);
+            string json = JsonSerializer.Serialize(data, _options);
             File.WriteAllText(path, json);
        }
        catch (System.Exception)

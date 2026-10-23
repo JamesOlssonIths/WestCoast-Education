@@ -42,7 +42,7 @@ class Program
     }
     static void IntroMessages()
     {
-        System.Console.WriteLine("Pick Student(Create student), ED(Create Education Supervisor), Teacher(Create Teacher), Show Student(show Students), Show Ed(Show employees), Show Teacher(Show consultant) Course(Create course) Show Course(Show Course) CA (Create Administorator) SA(show Adminsitators)");
+        System.Console.WriteLine("Pick Student(Create student), ED(Create Education Supervisor), Teacher(Create Teacher), Show Student(show Students), Show Ed(Show employees), Show Teacher(Show consultant) Course(Create course) Show Course(Show Course) CA (Create Administorator) SA(show Adminsitators) To exit program enter 'x'");
     }
 
 }
